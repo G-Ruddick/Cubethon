@@ -8,7 +8,7 @@ public class Player_movement : MonoBehaviour {
     public float getSideInput;
 
     void Start() {
-        forwardSpeed = 1000f;
+        forwardSpeed = 3000f;
         sideSpeed = 50f;
     }
 
@@ -21,6 +21,6 @@ public class Player_movement : MonoBehaviour {
         Player_rb.AddForce(Vector3.forward * forwardSpeed * Time.deltaTime);
 
         // sideways input check
-        Player_rb.AddForce(Vector3.right * getSideInput * Time.deltaTime, ForceMode.Impulse);
+        Player_rb.AddForce(Vector3.right * getSideInput * Time.deltaTime, ForceMode.VelocityChange);
     }
 }
