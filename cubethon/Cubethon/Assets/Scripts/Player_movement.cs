@@ -8,9 +8,8 @@ public class Player_movement : MonoBehaviour {
     public float getSideInput;
 
     void Start() {
-        forwardSpeed = 60f;
+        forwardSpeed = 3000f;
         sideSpeed = 50f;
-        Physics.gravity = new Vector3(0,-30f,0);
     }
 
     void Update() {
@@ -19,17 +18,9 @@ public class Player_movement : MonoBehaviour {
 
     void FixedUpdate() {
         // forward speed
-        Player_rb.AddForce(Vector3.forward * forwardSpeed * Time.deltaTime, ForceMode.VelocityChange);
+        Player_rb.AddForce(Vector3.forward * forwardSpeed * Time.deltaTime);
 
         // sideways input check
         Player_rb.AddForce(Vector3.right * getSideInput * Time.deltaTime, ForceMode.VelocityChange);
-
-        if (Player_rb.position.y < -4f) {
-            Player_rb.AddForce(Random.Range(-50f,50f),Random.Range(-50f,50f),Random.Range(-50f,50f), ForceMode.VelocityChange);
-            Player_rb.AddTorque(Random.Range(-20000,20000),Random.Range(-20000,20000),Random.Range(-20000,20000));
-
-            
-            Object.FindFirstObjectByType<GameManager>().gameOver();
-        }
     }
 }
