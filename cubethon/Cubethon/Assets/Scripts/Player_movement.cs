@@ -14,7 +14,6 @@ public class Player_movement : MonoBehaviour {
     }
 
     void Update() {
-        Debug.Log(Time.deltaTime);
         getSideInput = Input.GetAxis("Horizontal") * sideSpeed;
     }
 

@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Level_Complete : MonoBehaviour {
-    void loadNextLevel() {
+    public void loadNextLevel() {
         SceneManager.LoadScene("Level_02");
     }
 }
