@@ -1,8 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
-{
+public class GameManager : MonoBehaviour {
     public Player_movement playerMovement;
     public GameObject completeLevelUI;
 
@@ -17,16 +16,17 @@ public class GameManager : MonoBehaviour
         completeLevelUI.SetActive(true);
     }
 
-    public void gameOver(){
+    public void gameOver() {
         if (!playerDead) { 
             playerDead = true; 
             Invoke("Restart", 1.5f);
         }
-
     }
 
-    void Restart()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    void Restart() {
+        if (!Recorder.isReplaying) {
+            Recorder.recordedInputs.Clear();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 }

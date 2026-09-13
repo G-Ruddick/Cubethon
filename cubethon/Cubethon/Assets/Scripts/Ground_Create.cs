@@ -24,12 +24,12 @@ public class Ground_Create : MonoBehaviour
     {
         groundNumber++;
         GameObject GroundDuplicate = Instantiate(Ground, new Vector3(0,0, 300 * groundNumber) , new Quaternion(0,0,0,0));
-        Destroy(GroundDuplicate, 40f);
+        // Destroy(GroundDuplicate, 40f);
     }
 
     void ObjectSpawn() {
         GameObject Obstical = Instantiate(objectTypes[Random.Range(0, 5)], new Vector3(0, 0, 65 * objectNumber), new Quaternion(0,0,0,0));
         objectNumber++;
-        Destroy(Obstical, 80f);
+        // Destroy(Obstical, 80f);
     }
 }
