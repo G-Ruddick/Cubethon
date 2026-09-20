@@ -1,19 +1,44 @@
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Player_movement : MonoBehaviour {
-    public Rigidbody Player_rb;
-
+public class Player_movement : Subject {
     public float forwardSpeed;
     public float sideSpeed;
     public float getSideInput;
+    public bool slowDown;
+
+    public Rigidbody Player_rb;
+    public Button slowDownButton;
+
+    private SlowDownController slowDownController;
+
+    void Awake() {
+        slowDownController = gameObject.AddComponent<SlowDownController>();
+        slowDownButton = GameObject.Find("Slow Down Button").GetComponent<Button>();
+        slowDownButton.onClick.AddListener(NotifyObservers);
+    }
+
+    private void OnEnable() {
+        if (slowDownController) {
+            Attach(slowDownController);
+        }
+    }
+
+    private void OnDisable() {
+        if (slowDownController) {
+            Detach(slowDownController);
+        }
+    }
 
     void Start() {
         forwardSpeed = 60f;
         sideSpeed = 50f;
+        slowDown = false;
         Physics.gravity = new Vector3(0,-30f,0);
     }
 
     void Update() {
+        // Debug.Log(forwardSpeed);
         getSideInput = Input.GetAxis("Horizontal") * sideSpeed;
     }
 

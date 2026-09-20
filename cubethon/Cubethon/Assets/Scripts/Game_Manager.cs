@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour {
     void Start() {
         completeLevelUI.SetActive(false);
     }
+    
     public void gameWin() {
         playerMovement.enabled = false;
 

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2581508582556766319}
   - component: {fileID: 1148518518507180565}
   - component: {fileID: 7307507798790777850}
-  - component: {fileID: 9183595948751000378}
+  - component: {fileID: 1349926606849683294}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -150,11 +150,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fca91abc3247c7d4fa5df05662c485fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player_rb: {fileID: 1148518518507180565}
   forwardSpeed: 0
   sideSpeed: 0
   getSideInput: 0
---- !u!114 &9183595948751000378
+  slowDown: 0
+  Player_rb: {fileID: 1148518518507180565}
+  slowDownButton: {fileID: 0}
+--- !u!114 &1349926606849683294
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
